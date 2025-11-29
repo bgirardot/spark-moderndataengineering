@@ -3,7 +3,8 @@
     {
       "text": "%md\n## Data Inception: Using Spark to help Spark\nIn this following notebook, we will learn to use Spark to help us work more efficiently.\n",
       "user": "anonymous",
-      "dateUpdated": "2021-01-31 19:52:44.840",
+      "dateUpdated": "2025-11-29 17:59:44.521",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,15 +39,16 @@
       "jobName": "paragraph_1610923294026_749698639",
       "id": "paragraph_1610923294026_749698639",
       "dateCreated": "2021-01-17 22:41:34.026",
-      "dateStarted": "2021-01-31 19:52:44.865",
-      "dateFinished": "2021-01-31 19:52:44.884",
+      "dateStarted": "2025-11-29 17:59:44.522",
+      "dateFinished": "2025-11-29 17:59:46.414",
       "status": "FINISHED"
     },
     {
       "title": "Read as CSV",
       "text": "%spark\n\n// load the same file from the IntroToSparkOnZeppelin \nval coffees \u003d spark.read.csv(\"file:///learn/raw-coffee.txt\").toDF(\"name\",\"roast\")\ncoffees.show()",
       "user": "anonymous",
-      "dateUpdated": "2021-01-31 19:52:44.964",
+      "dateUpdated": "2025-11-29 17:59:48.119",
+      "progress": 100,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -83,10 +85,10 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d0"
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d5"
             },
             {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d1"
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d6"
             }
           ],
           "interpreterSettingId": "spark"
@@ -96,9 +98,882 @@
       "jobName": "paragraph_1610923180042_1100920629",
       "id": "paragraph_1610923180042_1100920629",
       "dateCreated": "2021-01-17 22:39:40.043",
-      "dateStarted": "2021-01-31 19:52:44.976",
-      "dateFinished": "2021-01-31 19:52:50.447",
+      "dateStarted": "2025-11-29 17:59:48.123",
+      "dateFinished": "2025-11-29 17:59:48.630",
       "status": "FINISHED"
+    },
+    {
+      "text": "%spark\ncoffees.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 17:59:51.290",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- name: string (nullable \u003d true)\n |-- roast: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764383299233_777662033",
+      "id": "paragraph_1764383299233_777662033",
+      "dateCreated": "2025-11-29 02:28:19.233",
+      "dateStarted": "2025-11-29 17:59:51.295",
+      "dateFinished": "2025-11-29 17:59:51.403",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval coffeeAndSchema \u003d spark.read\n    .option(\"inferSchema\", true)\n    .csv(\"file:///learn/raw-coffee.txt\")\n    .toDF(\"name\",\"roast\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 17:59:56.148",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mcoffeeAndSchema\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [name: string, roast: double]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d7"
+            },
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d8"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764417044446_1583700186",
+      "id": "paragraph_1764417044446_1583700186",
+      "dateCreated": "2025-11-29 11:50:44.448",
+      "dateStarted": "2025-11-29 17:59:56.151",
+      "dateFinished": "2025-11-29 17:59:56.444",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\ncoffeeAndSchema.printSchema",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:00:02.698",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- name: string (nullable \u003d true)\n |-- roast: double (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764417133451_190410497",
+      "id": "paragraph_1764417133451_190410497",
+      "dateCreated": "2025-11-29 11:52:13.451",
+      "dateStarted": "2025-11-29 18:00:02.702",
+      "dateFinished": "2025-11-29 18:00:02.780",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// Source - https://stackoverflow.com/a/40369996\n// Posted by Vijay Krishna\n// Retrieved 2025-11-29, License - CC BY-SA 3.0\n\nimport org.apache.spark.sql.types._\n\nval coffeeSchema: StructType \u003d coffeeAndSchema.schema\nval coffeeSchemaDDL: String \u003d coffeeSchema.toDDL\nprintln(s\"$coffeeSchemaDDL\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:00:39.568",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "name STRING,roast DOUBLE\nimport org.apache.spark.sql.types._\n\u001b[1m\u001b[34mcoffeeSchema\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.types.StructType\u001b[0m \u003d StructType(StructField(name,StringType,true),StructField(roast,DoubleType,true))\n\u001b[1m\u001b[34mcoffeeSchemaDDL\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d name STRING,roast DOUBLE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764417177955_829808598",
+      "id": "paragraph_1764417177955_829808598",
+      "dateCreated": "2025-11-29 11:52:57.956",
+      "dateStarted": "2025-11-29 18:00:39.570",
+      "dateFinished": "2025-11-29 18:00:39.634",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval coffeeSchema \u003d StructType(\nSeq(\nStructField(\"name\", StringType,\nmetadata \u003d new MetadataBuilder()\n.putString(\"comment\", \"Coffee Brand Name\")\n.build()),\nStructField(\"roast\", DoubleType,\nmetadata \u003d new MetadataBuilder()\n.putString(\"comment\", \"Coffee Roast Level (1-10)\")\n.build())))\nval coffees \u003d spark.read\n.option(\"inferSchema\", \"false\")\n.schema(coffeeSchema)\n.csv(\"file:///learn/raw-coffee.txt\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:01:23.818",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mcoffeeSchema\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.types.StructType\u001b[0m \u003d StructType(StructField(name,StringType,true),StructField(roast,DoubleType,true))\n\u001b[1m\u001b[34mcoffees\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [name: string, roast: double]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439153717_1176466787",
+      "id": "paragraph_1764439153717_1176466787",
+      "dateCreated": "2025-11-29 17:59:13.718",
+      "dateStarted": "2025-11-29 18:01:23.822",
+      "dateFinished": "2025-11-29 18:01:23.937",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\ncoffees.createOrReplaceTempView(\"coffees\")\nspark.sql(\"desc coffees\").show(truncate\u003dfalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:04:19.964",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+---------+-------------------------+\n|col_name|data_type|comment                  |\n+--------+---------+-------------------------+\n|name    |string   |Coffee Brand Name        |\n|roast   |double   |Coffee Roast Level (1-10)|\n+--------+---------+-------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439405656_1431735511",
+      "id": "paragraph_1764439405656_1431735511",
+      "dateCreated": "2025-11-29 18:03:25.656",
+      "dateStarted": "2025-11-29 18:04:19.969",
+      "dateFinished": "2025-11-29 18:04:20.139",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sql\nselect * from coffees;\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:07:20.212",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "roast": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "name",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "roast",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\troast\nfolgers\t10.0\nyuban\t10.0\nnespresso\t10.0\nritual\t4.0\nfour barrel\t5.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d12"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439475555_2030488999",
+      "id": "paragraph_1764439475555_2030488999",
+      "dateCreated": "2025-11-29 18:04:35.555",
+      "dateStarted": "2025-11-29 18:07:20.215",
+      "dateFinished": "2025-11-29 18:07:20.289",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sql\nselect min(roast), max(roast) from coffees;",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:08:16.454",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "min(roast)": "string",
+                      "max(roast)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "min(roast)\tmax(roast)\n4.0\t10.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d13"
+            },
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d14"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439667293_482378442",
+      "id": "paragraph_1764439667293_482378442",
+      "dateCreated": "2025-11-29 18:07:47.294",
+      "dateStarted": "2025-11-29 18:08:16.129",
+      "dateFinished": "2025-11-29 18:08:16.359",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sql\nselect * from coffees order by roast asc;",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:08:45.149",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "roast": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\troast\nritual\t4.0\nfour barrel\t5.0\nfolgers\t10.0\nyuban\t10.0\nnespresso\t10.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d15"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439702475_303090251",
+      "id": "paragraph_1764439702475_303090251",
+      "dateCreated": "2025-11-29 18:08:22.475",
+      "dateStarted": "2025-11-29 18:08:44.929",
+      "dateFinished": "2025-11-29 18:08:45.041",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sql\nselect * from coffees order by name;",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:09:04.248",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "roast": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\troast\nfolgers\t10.0\nfour barrel\t5.0\nnespresso\t10.0\nritual\t4.0\nyuban\t10.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d16"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439730426_397548941",
+      "id": "paragraph_1764439730426_397548941",
+      "dateCreated": "2025-11-29 18:08:50.426",
+      "dateStarted": "2025-11-29 18:09:04.045",
+      "dateFinished": "2025-11-29 18:09:04.135",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sql\nselect avg(roast) as avg_roast from coffees",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:06:55.238",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avg_roast": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "avg_roast\n7.8\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d10"
+            },
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d11"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439590638_484927533",
+      "id": "paragraph_1764439590638_484927533",
+      "dateCreated": "2025-11-29 18:06:30.638",
+      "dateStarted": "2025-11-29 18:06:54.711",
+      "dateFinished": "2025-11-29 18:06:55.136",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark\n.read\n.option(\"inferSchema\", \"false\")\n.schema(coffeeSchema)\n.csv(\"file:///learn/raw-coffee.txt\")\n.write\n.format(\"parquet\")\n.mode(\"overwrite\")\n.save(\"file:///learn/coffee.parquet\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:10:54.547",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d17"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764417434781_1401517850",
+      "id": "paragraph_1764417434781_1401517850",
+      "dateCreated": "2025-11-29 11:57:14.781",
+      "dateStarted": "2025-11-29 18:10:54.549",
+      "dateFinished": "2025-11-29 18:10:55.253",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark.read\n    .parquet(\"file:///learn/coffee.parquet\")\n    .createOrReplaceTempView(\"coffee\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:12:05.450",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d18"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439854548_575530230",
+      "id": "paragraph_1764439854548_575530230",
+      "dateCreated": "2025-11-29 18:10:54.548",
+      "dateStarted": "2025-11-29 18:12:05.454",
+      "dateFinished": "2025-11-29 18:12:05.584",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark.sql(\"desc coffee\").show(false)",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:13:00.635",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+---------+-------------------------+\n|col_name|data_type|comment                  |\n+--------+---------+-------------------------+\n|name    |string   |Coffee Brand Name        |\n|roast   |double   |Coffee Roast Level (1-10)|\n+--------+---------+-------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439925452_1378093947",
+      "id": "paragraph_1764439925452_1378093947",
+      "dateCreated": "2025-11-29 18:12:05.452",
+      "dateStarted": "2025-11-29 18:13:00.636",
+      "dateFinished": "2025-11-29 18:13:00.742",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 18:12:45.421",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764439965420_1207111293",
+      "id": "paragraph_1764439965420_1207111293",
+      "dateCreated": "2025-11-29 18:12:45.421",
+      "status": "READY"
     }
   ],
   "name": "3-2_LetSparkWorkForYou",
@@ -111,7 +986,5 @@
   "config": {
     "isZeppelinNotebookCronEnable": false
   },
-  "info": {
-    "isRunning": false
-  }
+  "info": {}
 }

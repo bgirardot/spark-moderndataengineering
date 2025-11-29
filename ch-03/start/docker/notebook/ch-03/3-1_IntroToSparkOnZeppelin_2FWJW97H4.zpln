@@ -3,7 +3,8 @@
     {
       "text": "%md\n# Introduction to Spark on Zeppelin\nIf you are seeing this then you were able to get your local environment running. Congrats.",
       "user": "anonymous",
-      "dateUpdated": "2021-01-31 19:52:07.578",
+      "dateUpdated": "2025-11-29 01:28:11.669",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,26 +39,37 @@
       "jobName": "paragraph_1610833094066_1219732012",
       "id": "paragraph_1610833094066_1219732012",
       "dateCreated": "2021-01-16 21:38:14.073",
-      "dateStarted": "2021-01-31 19:52:07.617",
-      "dateFinished": "2021-01-31 19:52:08.990",
+      "dateStarted": "2025-11-29 01:28:11.670",
+      "dateFinished": "2025-11-29 01:28:13.356",
       "status": "FINISHED"
     },
     {
       "text": "%spark\n// shows the spark settings and primes the spark session and context\nspark.sparkContext.getConf.toDebugString",
       "user": "anonymous",
-      "dateUpdated": "2021-01-31 19:52:09.063",
+      "dateUpdated": "2025-11-29 02:14:24.109",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 615.192,
+              "optionOpen": false
+            }
+          }
+        },
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -68,7 +80,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d\nPYSPARK_DRIVER_PYTHON\u003dpython\nPYSPARK_PYTHON\u003dpython\nSPARK_HOME\u003d/spark\nspark.app.id\u003dlocal-1612122740385\nspark.app.name\u003dZeppelin\nspark.driver.cores\u003d1\nspark.driver.extraClassPath\u003d:/zeppelin/interpreter/spark/*::/zeppelin/interpreter/zeppelin-interpreter-shaded-0.9.0-preview2.jar:/zeppelin/interpreter/spark/spark-interpreter-0.9.0-preview2.jar\nspark.driver.extraJavaOptions\u003d -Dfile.encoding\u003dUTF-8 -Dlog4j.configuration\u003d\u0027file:///zeppelin/conf/log4j.properties\u0027 -Dlog4j.configurationFile\u003d\u0027file:///zeppelin/conf/log4j2.properties\u0027 -Dzeppelin.log.file\u003d\u0027/logs/zeppelin-interpreter-spark-shared_process--zeppelin.log\u0027\nspark.driver.host\u003dzeppelin\nspark.driver.memory\u003d1g\nspark.driver.port\u003d43053\nspark.executor.cores\u003d1\nspark.executor.id\u003ddriver\nspark.executor.memory\u003d1g\n...\n"
+            "data": "\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d\nPYSPARK_DRIVER_PYTHON\u003dpython\nPYSPARK_PYTHON\u003dpython\nSPARK_HOME\u003d/spark\nspark.app.id\u003dlocal-1764382469139\nspark.app.initial.jar.urls\u003dspark://zeppelin:37839/jars/spark-interpreter-0.11.2.jar\nspark.app.name\u003dspark-shared_process\nspark.app.startTime\u003d1764382468530\nspark.app.submitTime\u003d1764382466162\nspark.driver.cores\u003d1\nspark.driver.extraClassPath\u003d\u0027\u0027:/opt/zeppelin/local-repo/spark/*:/opt/zeppelin/interpreter/spark/*:::/opt/zeppelin/interpreter/zeppelin-interpreter-shaded-0.11.2.jar:/opt/zeppelin/interpreter/spark/spark-interpreter-0.11.2.jar\nspark.driver.extraJavaOptions\u003d-Djava.net.preferIPv6Addresses\u003dfalse -XX:+IgnoreUnrecognizedVMOptions --add-opens\u003djava.base/java.lang\u003dALL-UNNAMED --add-opens\u003djava.base/java.lang.invoke\u003dALL-UNNAMED --add-opens\u003djava.base/j...\n"
           }
         ]
       },
@@ -78,14 +90,15 @@
       "jobName": "paragraph_1610320103402_199331554",
       "id": "paragraph_1610320103402_199331554",
       "dateCreated": "2021-01-10 23:08:23.402",
-      "dateStarted": "2021-01-31 19:52:09.079",
-      "dateFinished": "2021-01-31 19:52:27.597",
+      "dateStarted": "2025-11-29 02:14:24.124",
+      "dateFinished": "2025-11-29 02:14:31.651",
       "status": "FINISHED"
     },
     {
       "text": "%md\n## Read and Analyze\nThis next paragraph shows the most basic of Spark methods for file based reading. The zero-bells attached `spark.read.text`.\nThis is useful technique if you are working data for the first time and don\u0027t know how to parse it, or maybe are having issues using other methods for automatic parsing.\n",
       "user": "anonymous",
       "dateUpdated": "2021-01-31 19:52:27.674",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -128,7 +141,8 @@
       "title": "Read and Analyze",
       "text": "%spark\n// parse the raw coffee file. this is a simple csv file without headers. The goal is to build core skills: parsing, exploring data\n// format: name, boldness\n\nval df \u003d spark.read.text(\"file:///learn/raw-coffee.txt\")\ndf.printSchema\n",
       "user": "anonymous",
-      "dateUpdated": "2021-01-31 19:52:27.787",
+      "dateUpdated": "2025-11-29 02:19:36.464",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -162,9 +176,122 @@
       "jobName": "paragraph_1610320158652_480149",
       "id": "paragraph_1610320158652_480149",
       "dateCreated": "2021-01-10 23:09:18.653",
-      "dateStarted": "2021-01-31 19:52:27.800",
-      "dateFinished": "2021-01-31 19:52:31.063",
+      "dateStarted": "2025-11-29 02:19:36.470",
+      "dateFinished": "2025-11-29 02:19:36.581",
       "status": "FINISHED"
+    },
+    {
+      "text": "%spark\ndf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 02:21:34.746",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------+\n|         value|\n+--------------+\n|   folgers, 10|\n|     yuban, 10|\n| nespresso, 10|\n|     ritual, 4|\n|four barrel, 5|\n+--------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d0"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764382586438_1495041448",
+      "id": "paragraph_1764382586438_1495041448",
+      "dateCreated": "2025-11-29 02:16:26.438",
+      "dateStarted": "2025-11-29 02:21:34.750",
+      "dateFinished": "2025-11-29 02:21:34.322",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval converted \u003d df.map { r \u003d\u003e\nr.getString(0).split(\",\") match {\n    case Array(name:String,roast:String) \u003d\u003e\n        (name,roast.trim.toInt)\n    }\n}.toDF(\"name\",\"roast\")\nconverted.printSchema",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 02:27:34.247",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- name: string (nullable \u003d true)\n |-- roast: integer (nullable \u003d false)\n\n\u001b[1m\u001b[34mconverted\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [name: string, roast: int]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764382894749_2015250381",
+      "id": "paragraph_1764382894749_2015250381",
+      "dateCreated": "2025-11-29 02:21:34.749",
+      "dateStarted": "2025-11-29 02:27:34.251",
+      "dateFinished": "2025-11-29 02:27:34.521",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-29 02:26:41.203",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764383201203_132660597",
+      "id": "paragraph_1764383201203_132660597",
+      "dateCreated": "2025-11-29 02:26:41.203",
+      "status": "READY"
     }
   ],
   "name": "3-1_IntroToSparkOnZeppelin",
@@ -175,9 +302,9 @@
   "noteForms": {},
   "angularObjects": {},
   "config": {
-    "isZeppelinNotebookCronEnable": false
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
   },
-  "info": {
-    "isRunning": true
-  }
+  "info": {}
 }
