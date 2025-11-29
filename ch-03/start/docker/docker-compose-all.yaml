@@ -8,7 +8,9 @@ services:
       - ${PWD}/logs:/logs
       - ${PWD}/data:/learn
       - ${SPARK_HOME}:/spark
+      - ${JAVA_HOME}:/java17 
     environment:
+      - JAVA_HOME=/java17
       - SPARK_HOME=/spark
       - ZEPPELIN_LOG_DIR=/logs
       - ZEPPELIN_NOTEBOOK_DIR=/notebook
