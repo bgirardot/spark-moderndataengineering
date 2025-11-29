@@ -1,7 +1,7 @@
 version: '3'
 services:
   zeppelin:
-    image: apache/zeppelin:0.9.0
+    image: apache/zeppelin:0.11.1  # Updated from 0.9.0
     container_name: zeppelin
     volumes:
       - ${PWD}/notebook:/notebook
@@ -30,4 +30,3 @@ networks:
   mde:
     external:
       name: mde
-
