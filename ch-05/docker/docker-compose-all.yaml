@@ -22,17 +22,19 @@ services:
     hostname: mysql
   
   zeppelin:
-    image: apache/zeppelin:0.9.0
+    image: apache/zeppelin:0.11.2  # Updated from 0.9.0
     container_name: zeppelin
     volumes:
       - ${PWD}/notebook:/notebook
       - ${PWD}/logs:/logs
       - ${PWD}/data:/learn
       - ${SPARK_HOME}:/spark
+      - ${JAVA_HOME}:/java17 
       - ${PWD}/spark/conf:/spark/conf
       - ${PWD}/spark/jars:/spark/user_jars
       - ${PWD}/spark/sql/:/spark/sql/
     environment:
+      - JAVA_HOME=/java17
       - SPARK_HOME=/spark
       - SPARK_SUBMIT_OPTIONS=--packages=org.mariadb.jdbc:mariadb-java-client:2.7.2 --jars=/spark/user_jars/mysql-connector-java-8.0.23.jar
       - ZEPPELIN_LOG_DIR=/logs

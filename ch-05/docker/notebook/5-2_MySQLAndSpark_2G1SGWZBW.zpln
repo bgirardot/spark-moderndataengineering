@@ -3,7 +3,8 @@
     {
       "text": "%md\n# MySQL DataSource via JDBC DataFrameReader\n",
       "user": "anonymous",
-      "dateUpdated": "2021-03-08 00:43:49.039",
+      "dateUpdated": "2025-11-30 13:10:56.647",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,14 +39,105 @@
       "jobName": "paragraph_1614201359165_586278564",
       "id": "paragraph_1614201359165_586278564",
       "dateCreated": "2021-02-24 21:15:59.165",
-      "dateStarted": "2021-03-08 00:43:49.050",
-      "dateFinished": "2021-03-08 00:43:49.061",
+      "dateStarted": "2025-11-30 13:10:56.650",
+      "dateFinished": "2025-11-30 13:10:56.694",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark.sparkContext.getConf.toDebugString",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-30 13:11:20.347",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 246.642,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres5\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d\nPYSPARK_DRIVER_PYTHON\u003dpython\nPYSPARK_PYTHON\u003dpython\nSPARK_HOME\u003d/spark\nspark.app.id\u003dlocal-1764456658529\nspark.app.initial.jar.urls\u003dspark://zeppelin:35211/jars/mysql-connector-java-8.0.23.jar,spark://zeppelin:35211/jars/org.mariadb.jdbc_mariadb-java-client-2.7.2.jar,spark://zeppelin:35211/jars/spark-interpreter-0.11.2.jar\nspark.app.name\u003dspark-shared_process\nspark.app.startTime\u003d1764456658014\nspark.app.submitTime\u003d1764456654195\nspark.driver.cores\u003d1\nspark.driver.extraClassPath\u003d\u0027\u0027:/opt/zeppelin/local-repo/spark/*:/opt/zeppelin/interpreter/spark/*:::/opt/zeppelin/interpreter/zeppelin-interpreter-shaded-0.11.2.jar:/opt/zeppelin/interpreter/spark/spark-interpreter-0.11.2.jar\nspark.driver.extraJavaOptions\u003d-Djava.net.preferIPv6Addresses\u003dfalse -XX:+IgnoreUnrec...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764508258361_1146884560",
+      "id": "paragraph_1764508258361_1146884560",
+      "dateCreated": "2025-11-30 13:10:58.362",
+      "dateStarted": "2025-11-30 13:11:05.884",
+      "dateFinished": "2025-11-30 13:11:06.087",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark.conf.get(\"spark.jdbc.driver.class\", \"com.mysql.cj.jdbc.Driver\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-11-30 13:13:24.638",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres6\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d com.mysql.cj.jdbc.Driver\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1764508401618_188866271",
+      "id": "paragraph_1764508401618_188866271",
+      "dateCreated": "2025-11-30 13:13:21.618",
+      "dateStarted": "2025-11-30 13:13:24.642",
+      "dateFinished": "2025-11-30 13:13:24.762",
       "status": "FINISHED"
     },
     {
       "text": "%spark\n// shared configuration\n// note: this password is for Docker mysql only - it isn\u0027t smart to add passwords to code that is version controlled!\nval jdbcDriver \u003d spark.conf.get(\"spark.jdbc.driver.class\", \"org.mariadb.jdbc.Driver\")\nval dbHost     \u003d spark.conf.get(\"spark.jdbc.host\",\"mysql\")\nval dbPort     \u003d spark.conf.get(\"spark.jdbc.port\", \"3306\")\nval defaultDb  \u003d spark.conf.get(\"spark.jdbc.default.db\", \"default\")\nval dbTable    \u003d spark.conf.get(\"spark.jdbc.table\", \"customers\")\nval dbUser     \u003d spark.conf.get(\"spark.jdbc.user\", \"dataeng\")\nval dbPass     \u003d spark.conf.get(\"spark.jdbc.password\", \"dataengineering_user\")\n\nval connectionUrl \u003d s\"jdbc:mysql://$dbHost:$dbPort/$defaultDb\"\n",
       "user": "anonymous",
-      "dateUpdated": "2021-03-08 16:59:22.536",
+      "dateUpdated": "2025-11-29 23:09:34.159",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -78,20 +170,29 @@
       "jobName": "paragraph_1614213590359_2024560442",
       "id": "paragraph_1614213590359_2024560442",
       "dateCreated": "2021-02-25 00:39:50.359",
-      "dateStarted": "2021-03-08 16:59:22.557",
-      "dateFinished": "2021-03-08 16:59:24.866",
+      "dateStarted": "2025-11-29 23:09:34.164",
+      "dateFinished": "2025-11-29 23:09:34.309",
       "status": "FINISHED"
     },
     {
       "title": "Reading Data From JDBC Connections",
       "text": "%spark\nval customers \u003d spark.read\n  .format(\"jdbc\")\n  .option(\"url\", connectionUrl)\n  .option(\"driver\", jdbcDriver)\n  .option(\"dbtable\", dbTable)\n  .option(\"user\", dbUser)\n  .option(\"password\", dbPass)\n  .load()\n\ncustomers.printSchema\ncustomers.createOrReplaceTempView(\"customers\")",
       "user": "anonymous",
-      "dateUpdated": "2021-03-08 16:59:27.868",
+      "dateUpdated": "2025-11-29 23:09:39.282",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 210.942,
+              "optionOpen": false
+            }
+          }
+        },
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
@@ -120,15 +221,16 @@
       "jobName": "paragraph_1614184981488_759162661",
       "id": "paragraph_1614184981488_759162661",
       "dateCreated": "2021-02-24 16:43:01.488",
-      "dateStarted": "2021-03-08 16:59:27.895",
-      "dateFinished": "2021-03-08 16:59:31.122",
+      "dateStarted": "2025-11-29 23:09:39.287",
+      "dateFinished": "2025-11-29 23:09:39.425",
       "status": "FINISHED"
     },
     {
       "title": "Write New Customers to MySQL",
-      "text": "%spark\nimport org.apache.spark.sql._\nimport java.sql.Timestamp\nimport java.time._\n\n// spark: SparkSession (from spark-shell)\nassert(spark.isInstanceOf[SparkSession])\n\ndef ts(timeStr: String) \u003d Timestamp.valueOf(timeStr)\ndef time \u003d Timestamp.from(Instant.now())\n\n// create some new customers\nval records \u003d Seq(\n  Row(\"4\",ts(\"2021-02-21 21:00:00\"),time,\"Penny\",\"Haines\",\"penny@coffeeco.com\"),\n  Row(\"5\",ts(\"2021-02-21 22:00:00\"),time,\"Cloud\",\"Fast\",\"cloud.fast@acme.com\"),\n  Row(\"6\",ts(\"2021-02-21 23:00:00\"),time,\"Marshal\",\"Haines\",\"paws@coffeeco.com\")\n)\n\n// generate a new DataFrame using the new records and the schema from df (connect-jdbc.scala)\nval newCustomers \u003d spark.createDataFrame(\n    spark.sparkContext.parallelize(records),\n    customers.schema\n)\n\n// note: doesn\u0027t deduplicate if set to `mode(\"ignore\")`. It will just do nothing.\nnewCustomers\n  .write\n  .format(\"jdbc\")\n  //.mode(\"append\") // change to ignore to stop adding duplicates\n  .options(Map[String, String](\n    \"url\" -\u003e connectionUrl,\n    \"driver\" -\u003e jdbcDriver,\n    \"dbtable\" -\u003e dbTable,\n    \"user\" -\u003e dbUser,\n    \"password\" -\u003e dbPass\n  )\n).save()\n",
+      "text": "%spark\nimport org.apache.spark.sql._\nimport java.sql.Timestamp\nimport java.time._\n\n// spark: SparkSession (from spark-shell)\nassert(spark.isInstanceOf[SparkSession])\n\ndef ts(timeStr: String) \u003d Timestamp.valueOf(timeStr)\ndef time \u003d Timestamp.from(Instant.now())\n\n// create some new customers\nval records \u003d Seq(\n  Row(\"4\",ts(\"2021-02-21 21:00:00\"),time,\"Penny\",\"Haines\",\"penny@coffeeco.com\"),\n  Row(\"5\",ts(\"2021-02-21 22:00:00\"),time,\"Cloud\",\"Fast\",\"cloud.fast@acme.com\"),\n  Row(\"6\",ts(\"2021-02-21 23:00:00\"),time,\"Marshal\",\"Haines\",\"paws@coffeeco.com\")\n)\n\n// generate a new DataFrame using the new records and the schema from df (connect-jdbc.scala)\nval newCustomers \u003d spark.createDataFrame(\n    spark.sparkContext.parallelize(records),\n    customers.schema\n)\n\n// note: doesn\u0027t deduplicate if set to `mode(\"ignore\")`. It will just do nothing.\nnewCustomers\n  .write\n  .format(\"jdbc\")\n  .mode(\"append\") // change to ignore to stop adding duplicates\n  .options(Map[String, String](\n    \"url\" -\u003e connectionUrl,\n    \"driver\" -\u003e jdbcDriver,\n    \"dbtable\" -\u003e dbTable,\n    \"user\" -\u003e dbUser,\n    \"password\" -\u003e dbPass\n  )\n).save()\n",
       "user": "anonymous",
-      "dateUpdated": "2021-03-08 17:08:53.638",
+      "dateUpdated": "2025-11-29 23:15:28.744",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -148,28 +250,42 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": "org.apache.spark.sql.AnalysisException: Table or view \u0027customers\u0027 already exists. SaveMode: ErrorIfExists.\n  at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:71)\n  at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:46)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:70)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:68)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:90)\n  at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:180)\n  at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:218)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:215)\n  at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:176)\n  at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:132)\n  at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:131)\n  at org.apache.spark.sql.DataFrameWriter.$anonfun$runCommand$1(DataFrameWriter.scala:989)\n  at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)\n  at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)\n  at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)\n  at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:772)\n  at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)\n  at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:989)\n  at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:438)\n  at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:415)\n  at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:301)\n  ... 52 elided\n"
+            "data": "import org.apache.spark.sql._\nimport java.sql.Timestamp\nimport java.time._\n\u001b[1m\u001b[34mts\u001b[0m: \u001b[1m\u001b[32m(timeStr: String)java.sql.Timestamp\u001b[0m\n\u001b[1m\u001b[34mtime\u001b[0m: \u001b[1m\u001b[32mjava.sql.Timestamp\u001b[0m\n\u001b[1m\u001b[34mrecords\u001b[0m: \u001b[1m\u001b[32mSeq[org.apache.spark.sql.Row]\u001b[0m \u003d List([4,2021-02-21 21:00:00.0,2025-11-29 23:15:28.882525899,Penny,Haines,penny@coffeeco.com], [5,2021-02-21 22:00:00.0,2025-11-29 23:15:28.882554435,Cloud,Fast,cloud.fast@acme.com], [6,2021-02-21 23:00:00.0,2025-11-29 23:15:28.882561787,Marshal,Haines,paws@coffeeco.com])\n\u001b[1m\u001b[34mnewCustomers\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [id: string, created: timestamp ... 4 more fields]\n"
           }
         ]
       },
       "apps": [],
-      "runtimeInfos": {},
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d0"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1614213413596_418016277",
       "id": "paragraph_1614213413596_418016277",
       "dateCreated": "2021-02-25 00:36:53.596",
-      "dateStarted": "2021-03-08 17:08:41.736",
-      "dateFinished": "2021-03-08 17:08:42.559",
-      "status": "ERROR"
+      "dateStarted": "2025-11-29 23:15:28.749",
+      "dateFinished": "2025-11-29 23:15:30.275",
+      "status": "FINISHED"
     },
     {
       "text": "%sql\nselect * from customers",
       "user": "anonymous",
-      "dateUpdated": "2021-03-08 16:59:33.371",
+      "dateUpdated": "2025-11-29 23:15:48.274",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -225,7 +341,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "id\tcreated\tupdated\tfirst_name\tlast_name\temail\n1\t2021-03-08 00:48:42.0\t2021-03-08 00:48:42.0\tScott\tHaines\tscott@coffeeco.com\n2\t2021-03-08 00:48:42.0\t2021-03-08 00:48:42.0\tJohn\tHamm\tjohn.hamm@acme.com\n3\t2021-03-08 00:48:42.0\t2021-03-08 00:48:42.0\tMilo\tHaines\tmhaines@coffeeco.com\n6\t2021-02-21 23:00:00.0\t2021-02-21 23:00:00.0\tMarshal\tHaines\tpaws@coffeeco.com\n4\t2021-02-21 21:00:00.0\t2021-02-21 21:00:00.0\tPenny\tHaines\tpenny@coffeeco.com\n5\t2021-02-21 22:00:00.0\t2021-02-21 22:00:00.0\tCloud\tFast\tcloud.fast@acme.com\n5\t2021-02-21 22:00:00.0\t2021-02-21 22:00:00.0\tCloud\tFast\tcloud.fast@acme.com\n6\t2021-02-21 23:00:00.0\t2021-02-21 23:00:00.0\tMarshal\tHaines\tpaws@coffeeco.com\n4\t2021-02-21 21:00:00.0\t2021-02-21 21:00:00.0\tPenny\tHaines\tpenny@coffeeco.com\n4\t2021-02-21 21:00:00.0\tnull\tPenny\tHaines\tpenny@coffeeco.com\n5\t2021-02-21 22:00:00.0\tnull\tCloud\tFast\tcloud.fast@acme.com\n6\t2021-02-21 23:00:00.0\tnull\tMarshal\tHaines\tpaws@coffeeco.com\n4\t2021-02-21 21:00:00.0\t2021-03-08 01:37:35.0\tPenny\tHaines\tpenny@coffeeco.com\n5\t2021-02-21 22:00:00.0\t2021-03-08 01:37:35.0\tCloud\tFast\tcloud.fast@acme.com\n6\t2021-02-21 23:00:00.0\t2021-03-08 01:37:35.0\tMarshal\tHaines\tpaws@coffeeco.com\n"
+            "data": "id\tcreated\tupdated\tfirst_name\tlast_name\temail\n1\t2025-11-29 22:49:34.0\t2025-11-29 22:49:34.0\tScott\tHaines\tscott@coffeeco.com\n2\t2025-11-29 22:49:34.0\t2025-11-29 22:49:34.0\tJohn\tHamm\tjohn.hamm@acme.com\n3\t2025-11-29 22:49:34.0\t2025-11-29 22:49:34.0\tMilo\tHaines\tmhaines@coffeeco.com\n5\t2021-02-21 22:00:00.0\t2025-11-29 23:15:29.0\tCloud\tFast\tcloud.fast@acme.com\n4\t2021-02-21 21:00:00.0\t2025-11-29 23:15:29.0\tPenny\tHaines\tpenny@coffeeco.com\n6\t2021-02-21 23:00:00.0\t2025-11-29 23:15:29.0\tMarshal\tHaines\tpaws@coffeeco.com\n"
           }
         ]
       },
@@ -238,7 +354,7 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d0"
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d1"
             }
           ],
           "interpreterSettingId": "spark"
@@ -248,15 +364,16 @@
       "jobName": "paragraph_1614213752264_1780383982",
       "id": "paragraph_1614213752264_1780383982",
       "dateCreated": "2021-02-25 00:42:32.264",
-      "dateStarted": "2021-03-08 16:59:33.394",
-      "dateFinished": "2021-03-08 16:59:36.746",
+      "dateStarted": "2025-11-29 23:15:48.279",
+      "dateFinished": "2025-11-29 23:15:48.472",
       "status": "FINISHED"
     },
     {
       "title": "Get all the distinct emails",
       "text": "%sql\nselect distinct(email) as email from customers",
       "user": "anonymous",
-      "dateUpdated": "2021-03-08 01:02:35.031",
+      "dateUpdated": "2025-11-29 23:15:57.224",
+      "progress": 50,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -321,19 +438,10 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d10"
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d2"
             },
             {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d11"
-            },
-            {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d12"
-            },
-            {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d13"
-            },
-            {
-              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d14"
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d3"
             }
           ],
           "interpreterSettingId": "spark"
@@ -343,8 +451,8 @@
       "jobName": "paragraph_1615165203249_337912082",
       "id": "paragraph_1615165203249_337912082",
       "dateCreated": "2021-03-08 01:00:03.249",
-      "dateStarted": "2021-03-08 01:01:28.715",
-      "dateFinished": "2021-03-08 01:01:29.898",
+      "dateStarted": "2025-11-29 23:15:57.228",
+      "dateFinished": "2025-11-29 23:15:57.734",
       "status": "FINISHED"
     },
     {
@@ -352,6 +460,7 @@
       "text": "%sql\nSELECT id, min(created) as created, max(updated) as updated, email FROM customers\nGROUP BY id, email\nORDER BY id ASC",
       "user": "anonymous",
       "dateUpdated": "2021-03-08 01:55:02.843",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -437,6 +546,7 @@
       "text": "%md\n# Fixing the Customers Table\n\n~~~sql\nCREATE TABLE IF NOT EXISTS `customers` (\n  `id` text,\n  `created` timestamp NULL DEFAULT NULL,\n  `updated` timestamp NULL DEFAULT NULL,\n  `first_name` text,\n  `last_name` text,\n  `email` text\n);\n~~~\n\nThe initial customers table we whipped up in Exercise 5-1 is a little naive. We can do *better*.\n\n## Creating a Better Customers Table\nThe `bettercustomers` table has to be created first inside the database because spark doesn\u0027t recognize `AUTO_INCREMENT` in the table definition.\n~~~sql\nCREATE TABLE IF NOT EXISTS `bettercustomers` (\n  `id` mediumint NOT NULL AUTO_INCREMENT COMMENT \u0027customer automatic id\u0027,\n  `created` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT \u0027customer join date\u0027,\n  `updated` timestamp DEFAULT CURRENT_TIMESTAMP COMMENT \u0027last record update\u0027,\n  `first_name` varchar(100) NOT NULL,\n  `last_name` varchar(100) NOT NULL,\n  `email` varchar(255) NOT NULL UNIQUE,\n  PRIMARY KEY (`id`)\n);\n~~~\n\n### Inserting Customer Records Into BetterCustomers Table\n~~~sql\nINSERT INTO bettercustomers (created, first_name, last_name, email)\nVALUES\n(\"2021-02-16 00:16:06\", \"Scott\", \"Haines\", \"scott@coffeeco.com\"),\n(\"2021-02-16 00:16:06\", \"John\", \"Hamm\", \"john.hamm@acme.com\"),\n(\"2021-02-16 00:16:06\", \"Milo\", \"Haines\", \"mhaines@coffeeco.com\"),\n(\"2021-02-21 21:00:00\", \"Penny\", \"Haines\", \"penny@coffeeco.com\"),\n(\"2021-02-21 22:00:00\", \"Cloud\", \"Fast\", \"cloud.fast@acme.com\"),\n(\"2021-02-21 23:00:00\", \"Marshal\", \"Haines\", \"paws@coffeeco.com\"),\n(\"2021-02-24 09:00:00\", \"Willow\", \"Haines\", \"willow@coffeeco.com\"),\n(\"2021-02-24 09:00:00\", \"Clover\", \"Haines\", \"pup@coffeeco.com\");\n~~~",
       "user": "anonymous",
       "dateUpdated": "2021-03-05 22:39:18.714",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -480,6 +590,7 @@
       "text": "%spark\nval betterCustomers \u003d spark.read\n  .format(\"jdbc\")\n  .option(\"url\", connectionUrl)\n  .option(\"driver\", jdbcDriver)\n  .option(\"dbtable\", \"bettercustomers\")\n  .option(\"user\", dbUser)\n  .option(\"password\", dbPass)\n  .load()\n\nbetterCustomers.printSchema\n\nbetterCustomers.show(false)\n\nbetterCustomers.createOrReplaceTempView(\"bettercustomers\")",
       "user": "anonymous",
       "dateUpdated": "2021-03-08 17:23:54.204",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -535,6 +646,7 @@
       "text": "%spark\nbetterCustomers.schema",
       "user": "anonymous",
       "dateUpdated": "2021-03-08 17:23:59.313",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -577,6 +689,7 @@
       "text": "%spark\n\nimport org.apache.spark.sql.types._\nimport org.apache.spark.sql._\n\nval simpleFieldNames \u003d Set(\"first_name\", \"last_name\", \"email\")\nval simpleSchema \u003d StructType(\n    betterCustomers.schema.fields.filter(sf \u003d\u003e simpleFieldNames.contains(sf.name))\n)\n\nval saveMode \u003d \"append\" // change this to append to write through. The email constraint means this can only be run once - cause otherwise we\u0027d get an error.\n\n// create simplified Rows!\nval rows \u003d spark.createDataFrame(\n  spark.sparkContext.parallelize(\n      Seq(\n          Row(\"Nanna\",\"Haines\",\"nhugs@coffeeco.com\"),\n          Row(\"The\",\"Rock\",\"djohnson@coffeeco.com\")\n      )\n  ),\n  simpleSchema\n)\n\nrows\n.write\n.format(\"jdbc\")\n.mode(saveMode)\n.options(Map[String, String](\n  \"url\" -\u003e connectionUrl,\n  \"driver\" -\u003e jdbcDriver,\n  \"dbtable\" -\u003e \"bettercustomers\",\n  \"user\" -\u003e dbUser,\n  \"password\" -\u003e dbPass/*,\n  \"truncate\" -\u003e \"true\"*/\n))\n.save()",
       "user": "anonymous",
       "dateUpdated": "2021-03-08 17:25:02.039",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -641,6 +754,7 @@
       "text": "%md\n## Note\nIt is worth pointing out that if you use `mode(\"overwrite\")` in the **Write Customer Records without Supplying Automatic Fields** example above, then the Table schema will actually be rewritten which isn\u0027t certainly not what we want.\n\n### Why is that? \nGiven that Spark uses the DataFrame schema to define the format of the table, when we call `write.mode(\"overwrite\")...` we will actually be doing the following.\n1. First Spark will Drop the table (if it already exists)\n2. Second Spark will use the `rows.schema` to define the new create table syntax\n3. Lastly, Spark will write the rows into the database\n\nThis would change the table schema, and that is bad for business.\n\n### If the table is first `truncated` then it will preserve the original schema defined by you when you created the database table.\n",
       "user": "anonymous",
       "dateUpdated": "2021-03-08 17:26:24.747",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -684,6 +798,7 @@
       "text": "%spark\n\n// use interpreted Spark SQL to generate a DataFrame from our bettercustomers table\nval stored \u003d spark.sql(\"select * from bettercustomers\")\nstored.cache // will persist the dataframe - but there is a catch, spark needs to pass over the data twice to cache it, and we can use the count or head trick to do just that\nstored.count // kicks off the cache\n\nstored\n  .write\n  .mode(\"overwrite\")\n  .format(\"jdbc\")\n  .option(\"url\", connectionUrl)\n  .option(\"driver\", jdbcDriver)\n  .option(\"dbtable\", \"bettercustomers\")\n  .option(\"user\", dbUser)\n  .option(\"password\", dbPass)\n  .option(\"truncate\", true)\n  .save()\n\n// we no longer need to store the cached backup\nstored.unpersist",
       "user": "anonymous",
       "dateUpdated": "2021-03-08 17:26:37.703",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -741,6 +856,7 @@
       "text": "%sql\nselect * from bettercustomers;",
       "user": "anonymous",
       "dateUpdated": "2021-03-08 17:26:48.075",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -827,6 +943,7 @@
       "text": "%sql\n/*EXPLAIN*/ DESCRIBE EXTENDED bettercustomers",
       "user": "anonymous",
       "dateUpdated": "2021-03-05 22:34:28.649",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -898,6 +1015,7 @@
       "text": "%spark\nval schema \u003d spark\n.read\n.format(\"jdbc\")\n.options(Map[String, String](\n    \"url\" -\u003e connectionUrl,\n    \"driver\" -\u003e jdbcDriver,\n    \"query\" -\u003e \n\"\"\"\nselect column_name, data_type, is_nullable, column_comment from information_schema.`columns` \nwhere table_name \u003d \u0027bettercustomers\u0027 \nand table_schema \u003d \u0027default\u0027\n\"\"\",\n    \"user\" -\u003e dbUser,\n    \"password\" -\u003e dbPass\n  )\n)\n.load()\n.toDF(\"name\", \"type\", \"nullable\", \"comment\")\n\nschema\n  .select(\"name\", \"comment\")\n  .where(col(\"comment\").isNotNull)\n  .where(col(\"comment\").notEqual(\"\"))\n  .show(false)\n\n// can turn this into a map and apply it while iterating over the betterCustomers schema.fields -\u003e then we won\u0027t loose the metadata\n",
       "user": "anonymous",
       "dateUpdated": "2021-03-05 22:17:51.684",
+      "progress": 0,
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -952,6 +1070,7 @@
       "text": "%sql\n",
       "user": "anonymous",
       "dateUpdated": "2021-03-05 22:18:26.772",
+      "progress": 0,
       "config": {},
       "settings": {
         "params": {},
